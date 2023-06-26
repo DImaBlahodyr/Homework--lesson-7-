@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+    <style>
+      body {
+        background-color: lightgray;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .header {
+        max-width: 1425px;
+        margin: 0 auto;
+        background-color: rgb(31, 199, 131);
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 30px;
+      }
+      .header > p {
+        font-size: 24px;
+      }
+      .content {
+        max-width: 600px;
+        margin: 10px auto;
+        background-color: rgb(31, 199, 131);
+        border-radius: 10px;
+        text-align: center;
+        padding: 5px 0;
+        font-size: 24px;
+      }
+      .content > p {
+        text-align: center;
+      }
+      .content > table {
+        margin-bottom: 10px;
+        max-width: 100px;
+        margin: 10px auto;
+      }
+
+      .btn {
+        max-width: 300px;
+        margin: 30px auto;
+      }
+      .button {
+        display: block;
+        text-decoration: none;
+        color: black;
+        background-color: rgb(31, 199, 131);
+        margin: 15px 25px;
+        text-align: center;
+        font-size: 22px;
+        padding: 10px 20px;
+        border-radius: 7px;
+      }
+      .button:hover {
+        background-color: rgb(63, 112, 210);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>Задача 4</div>
+      <p>
+        Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька
+        результатів: кількість парних, кількість додатних, кількість більших за
+        100.
+      </p>
+    </div>
+    <div class="content">
+      <p>Відповідь до задачі:</p>
+      <script>
+        function evenNums(a, b, c) {
+          let evenValues = 0
+          if (a % 2 == 0) evenValues++
+          if (b % 2 == 0) evenValues++
+          if (c % 2 == 0) evenValues++
+
+          return evenValues
+        }
+        function greaterZeroNums(a, b, c) {
+          let positiveValues = 0
+          if (a > 0) positiveValues++
+          if (b > 0) positiveValues++
+          if (c > 0) positiveValues++
+
+          return positiveValues
+        }
+        function greater100Nums(a, b, c) {
+          let valueGreater100 = 0
+          if (a > 100) valueGreater100++
+          if (b > 100) valueGreater100++
+          if (c > 100) valueGreater100++
+          return valueGreater100
+        }
+
+        let a = parseFloat(prompt('Введіть перше число'))
+        let b = parseFloat(prompt('Введіть друге число'))
+        let c = parseFloat(prompt('Введіть третє число'))
+
+        document.write(`Парних чисел: ${evenNums(a, b, c)} <br>`)
+        document.write(`Додатніх чисел: ${greaterZeroNums(a, b, c)}<br>`)
+        document.write(`Чисел більше 100: ${greater100Nums(a, b, c)}`)
+      </script>
+    </div>
+    <div class="btn">
+      <a class="button" href="./index.html">На головну</a>
+    </div>
+  </body>
+</html>

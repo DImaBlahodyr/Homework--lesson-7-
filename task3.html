@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <style>
+      body {
+        background-color: lightgray;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .header {
+        max-width: 1425px;
+        margin: 0 auto;
+        background-color: rgb(31, 199, 131);
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 30px;
+      }
+      .header > p {
+        font-size: 24px;
+      }
+      .content {
+        max-width: 600px;
+        margin: 10px auto;
+
+        background-color: rgb(31, 199, 131);
+        border-radius: 10px;
+
+        padding: 5px 0;
+        font-size: 24px;
+      }
+      .content > p {
+        text-align: center;
+      }
+
+      .btn {
+        max-width: 300px;
+        margin: 30px auto;
+      }
+      .button {
+        display: block;
+        text-decoration: none;
+        color: black;
+        background-color: rgb(31, 199, 131);
+        margin: 15px 25px;
+        text-align: center;
+        font-size: 22px;
+        padding: 10px 20px;
+        border-radius: 7px;
+      }
+      .button:hover {
+        background-color: rgb(63, 112, 210);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>Задача 3</div>
+      <p>
+        Створити окремі функції, які для 4 чисел знаходять:<br />
+        1. суму;<br />
+        2. добуток;<br />
+        3. середнє арифметичне;<br />
+        4. мінімальне значення.
+      </p>
+    </div>
+    <div class="content">
+      <p>Відповідь до задачі:</p>
+
+      <script>
+        function sum(a, b, c, d) {
+          let sum = a + b + c + d
+          return sum
+        }
+        function prod(a, b, c, d) {
+          let product = a * b * c * d
+          return product
+        }
+        function average(a, b, c, d) {
+          let average = (a + b + c + d) / 4
+          return average
+        }
+        function minValue(a, b, c, d) {
+          minVal = Math.min(a, b, c, d)
+          return minVal
+        }
+        let a = parseFloat(prompt('Введіть перше число'))
+        let b = parseFloat(prompt('Введіть друге число'))
+        let c = parseFloat(prompt('Введіть третє число'))
+        let d = parseFloat(prompt('Введіть четверте число'))
+
+        document.write(`Сума введенних чисел дорівнює ${sum(a, b, c, d)}<br>`)
+        document.write(
+          `Добуток введенних чисел дорівнює ${prod(a, b, c, d)}<br>`
+        )
+        document.write(
+          `Середнє арифметичне введенних чисел дорівнює ${average(
+            a,
+            b,
+            c,
+            d
+          )}<br>`
+        )
+        document.write(
+          `Мінімальне із введенних чисел дорівнює ${minValue(a, b, c, d)}<br>`
+        )
+      </script>
+    </div>
+    <div class="btn">
+      <a class="button" href="./index.html">На головну</a>
+    </div>
+  </body>
+</html>

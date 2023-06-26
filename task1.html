@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+    <style>
+      body {
+        background-color: lightgray;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .header {
+        max-width: 1425px;
+        margin: 0 auto;
+        background-color: rgb(31, 199, 131);
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 30px;
+      }
+      .header > p {
+        font-size: 24px;
+      }
+      .content {
+        max-width: 600px;
+        margin: 10px auto;
+        background-color: rgb(31, 199, 131);
+        border-radius: 10px;
+        text-align: center;
+        padding: 5px 0;
+        font-size: 24px;
+      }
+      .btn {
+        max-width: 300px;
+        margin: 30px auto;
+      }
+      .button {
+        display: block;
+        text-decoration: none;
+        color: black;
+        background-color: rgb(31, 199, 131);
+        margin: 15px 25px;
+        text-align: center;
+        font-size: 22px;
+        padding: 10px 20px;
+        border-radius: 7px;
+      }
+      .button:hover {
+        background-color: rgb(63, 112, 210);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>Задача 0</div>
+      <p>
+        Створити функцію, яка за номером місяця повертає пору року, до якої
+        відноситься цей місяць.
+      </p>
+      <img src="./img1.PNG" alt="" />
+    </div>
+    <div class="content">
+      <p>Відповідь до задачі:</p>
+      <script>
+        let monthNum
+        let yearSeason
+
+        function season(monthNum) {
+          switch (monthNum) {
+            case 12:
+            case 1:
+            case 2:
+              yearSeason = 'Зима'
+              break
+            case 3:
+            case 4:
+            case 5:
+              yearSeason = 'Весна'
+              break
+            case 6:
+            case 7:
+            case 8:
+              yearSeason = 'Літо'
+              break
+            case 9:
+            case 10:
+            case 11:
+              yearSeason = 'Осінь'
+              break
+          }
+          return yearSeason
+        }
+        do {
+          monthNum = parseInt(prompt('Введіть номер місяця'))
+          if (monthNum > 12) {
+            alert('Не вірне значення, спробуйте ще раз')
+          }
+        } while (monthNum > 12)
+
+        document.write(
+          `Місяць під номером ${monthNum} відноситься до пори року ${season(
+            monthNum
+          )}`
+        )
+      </script>
+    </div>
+    <div class="btn">
+      <a class="button" href="./index.html">На головну</a>
+    </div>
+  </body>
+</html>

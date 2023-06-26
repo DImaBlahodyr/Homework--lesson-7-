@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5</title>
+    <style>
+      body {
+        background-color: lightgray;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .header {
+        max-width: 1425px;
+        margin: 0 auto;
+        background-color: rgb(31, 199, 131);
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 30px;
+      }
+      .header > p {
+        font-size: 24px;
+      }
+      .content {
+        max-width: 600px;
+        margin: 10px auto;
+        background-color: rgb(31, 199, 131);
+        border-radius: 10px;
+        text-align: center;
+        padding: 5px 0;
+        font-size: 24px;
+      }
+      .content > p {
+        text-align: center;
+      }
+      .content > table {
+        margin-bottom: 10px;
+        max-width: 100px;
+        margin: 10px auto;
+      }
+
+      .btn {
+        max-width: 300px;
+        margin: 30px auto;
+      }
+      .button {
+        display: block;
+        text-decoration: none;
+        color: black;
+        background-color: rgb(31, 199, 131);
+        margin: 15px 25px;
+        text-align: center;
+        font-size: 22px;
+        padding: 10px 20px;
+        border-radius: 7px;
+      }
+      .button:hover {
+        background-color: rgb(63, 112, 210);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>Задача 5</div>
+      <p>
+        Створити окремі функції, які переводять:<br />
+        1. Сантиметри у дюйми;<br />
+        2. Кілограми у фунти; <br />
+        3. Кілометри у милі.
+      </p>
+    </div>
+    <div class="content">
+      <p>Відповідь до задачі:</p>
+      <script>
+        function conversionInInches(a) {
+          let result1 = a / 2.54
+          return result1
+        }
+        function conversionInPounds(b) {
+          let result2 = b * 2.205
+          return result2
+        }
+        function conversionInMiles(c) {
+          let result3 = c / 1.609
+          return result3
+        }
+
+        let a = parseFloat(prompt('Введіть довжину в сантиметрах'))
+        let b = parseFloat(prompt('Введіть масу в кілограмах'))
+        let c = parseFloat(prompt('Введіть відстань в клометрах'))
+
+        document.write(
+          `В ${a} сантиметрах ${conversionInInches(a).toFixed(2)} дюймів <br>`
+        )
+        document.write(
+          `В ${b} кілограмах ${conversionInPounds(b).toFixed(2)} фунтів <br>`
+        )
+        document.write(
+          `В ${c} кілометрах ${conversionInMiles(c).toFixed(2)} миль <br>`
+        )
+      </script>
+    </div>
+    <div class="btn">
+      <a class="button" href="./index.html">На головну</a>
+    </div>
+  </body>
+</html>
