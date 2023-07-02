@@ -64,40 +64,56 @@
     <div class="header">
       <div>Задача 5</div>
       <p>
-        Створити окремі функції, які переводять:<br />
-        1. Сантиметри у дюйми;<br />
-        2. Кілограми у фунти; <br />
-        3. Кілометри у милі.
+        Дано послідовність оцінок учня. Підрахувати кількість:<br />
+        1. двійок<br />
+        2. кількість хороших оцінок (добре, відмінно)<br />
+        3. кількість оцінок, які нижче середнього<br />
       </p>
     </div>
     <div class="content">
       <p>Відповідь до задачі:</p>
       <script>
-        function conversionInInches(a) {
-          let result1 = a / 2.54
-          return result1
-        }
-        function conversionInPounds(b) {
-          let result2 = b * 2.205
-          return result2
-        }
-        function conversionInMiles(c) {
-          let result3 = c / 1.609
-          return result3
-        }
+        let scores = [2, 4, 3, 5, 5, 5, 4, 3, 3, 4, 2, 2, 4, 5, 4, 4, 5, 3, 4]
 
-        let a = parseFloat(prompt('Введіть довжину в сантиметрах'))
-        let b = parseFloat(prompt('Введіть масу в кілограмах'))
-        let c = parseFloat(prompt('Введіть відстань в клометрах'))
+        document.write(`Масив:<br> ${scores} <br><br>`)
 
+        function twosNums(scores) {
+          let counter = 0
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 2) counter++
+          }
+          return counter
+        }
+        document.write(`Кількість двійок: ${twosNums(scores)} <br>`)
+
+        function goodScores(scores) {
+          let counter1 = 0
+          let counter2 = 0
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 4) counter1++
+          }
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 5) counter2++
+          }
+          return counter1 + counter2
+        }
         document.write(
-          `В ${a} сантиметрах ${conversionInInches(a).toFixed(2)} дюймів <br>`
+          `Кількість хороших оцінок (добре, відмінно): ${goodScores(
+            scores
+          )} <br>`
         )
+
+        function satisfactoryScores(scores) {
+          let counter = 0
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 3) counter++
+          }
+          return counter
+        }
         document.write(
-          `В ${b} кілограмах ${conversionInPounds(b).toFixed(2)} фунтів <br>`
-        )
-        document.write(
-          `В ${c} кілометрах ${conversionInMiles(c).toFixed(2)} миль <br>`
+          `Кількість оцінок, які нижче середнього: ${satisfactoryScores(
+            scores
+          )} <br>`
         )
       </script>
     </div>

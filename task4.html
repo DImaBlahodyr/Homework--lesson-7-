@@ -23,7 +23,7 @@
         font-size: 24px;
       }
       .content {
-        max-width: 600px;
+        max-width: 900px;
         margin: 10px auto;
         background-color: rgb(31, 199, 131);
         border-radius: 10px;
@@ -64,45 +64,68 @@
     <div class="header">
       <div>Задача 4</div>
       <p>
-        Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька
-        результатів: кількість парних, кількість додатних, кількість більших за
-        100.
+        Дано послідовність номерів автомобілів. Підрахувати кількість номерів,
+        які:<br />
+        • починаються на букву «А»;<br />
+        • перша і остання літери співпадають;<br />
+        • складаються з більше ніш 5 символів;<br />
       </p>
     </div>
     <div class="content">
       <p>Відповідь до задачі:</p>
       <script>
-        function evenNums(a, b, c) {
-          let evenValues = 0
-          if (a % 2 == 0) evenValues++
-          if (b % 2 == 0) evenValues++
-          if (c % 2 == 0) evenValues++
+        let carNumbers = [
+          'АА1234АА',
+          'КА1534ВА',
+          'СЕ1ВС',
+          'СВ1234ВК',
+          'ВС4КА',
+          'АА8357ВС',
+          'КI1234АК',
+        ]
 
-          return evenValues
-        }
-        function greaterZeroNums(a, b, c) {
-          let positiveValues = 0
-          if (a > 0) positiveValues++
-          if (b > 0) positiveValues++
-          if (c > 0) positiveValues++
+        document.write(`Масив: ${carNumbers} <br><br>`)
 
-          return positiveValues
-        }
-        function greater100Nums(a, b, c) {
-          let valueGreater100 = 0
-          if (a > 100) valueGreater100++
-          if (b > 100) valueGreater100++
-          if (c > 100) valueGreater100++
-          return valueGreater100
+        function firstLatter(carNumbers) {
+          let counter = 0
+          for (let i = 0; i < carNumbers.length; i++) {
+            if (carNumbers[i][0] === 'А') counter++
+          }
+          return counter
         }
 
-        let a = parseFloat(prompt('Введіть перше число'))
-        let b = parseFloat(prompt('Введіть друге число'))
-        let c = parseFloat(prompt('Введіть третє число'))
+        document.write(
+          `${firstLatter(carNumbers)} номери починаються на літеру А <br>`
+        )
 
-        document.write(`Парних чисел: ${evenNums(a, b, c)} <br>`)
-        document.write(`Додатніх чисел: ${greaterZeroNums(a, b, c)}<br>`)
-        document.write(`Чисел більше 100: ${greater100Nums(a, b, c)}`)
+        function firstAndLastLatter(carNumbers) {
+          let counter = 0
+          for (let i = 0; i < carNumbers.length; i++) {
+            if (carNumbers[i][0] === carNumbers[i][carNumbers[i].length - 1])
+              counter++
+          }
+          return counter
+        }
+
+        document.write(
+          `У ${firstAndLastLatter(
+            carNumbers
+          )} номерів співпадають перша і остання літери <br>`
+        )
+
+        function moreFiveSymbols(carNumbers) {
+          let counter = 0
+          for (let i = 0; i < carNumbers.length; i++) {
+            if (carNumbers[i].length > 5) counter++
+          }
+          return counter
+        }
+
+        document.write(
+          `${moreFiveSymbols(
+            carNumbers
+          )} номерів мають більше 5ти символів <br>`
+        )
       </script>
     </div>
     <div class="btn">

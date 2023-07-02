@@ -35,6 +35,9 @@
       .content > p {
         text-align: center;
       }
+      .answer {
+        text-align: center;
+      }
 
       .btn {
         max-width: 300px;
@@ -60,54 +63,36 @@
     <div class="header">
       <div>Задача 3</div>
       <p>
-        Створити окремі функції, які для 4 чисел знаходять:<br />
-        1. суму;<br />
-        2. добуток;<br />
-        3. середнє арифметичне;<br />
-        4. мінімальне значення.
+        Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я
+        «Іван».
       </p>
     </div>
     <div class="content">
       <p>Відповідь до задачі:</p>
+      <div class="answer">
+        <script>
+          const names = [
+            'Дмитро',
+            'Іван',
+            'Владислав',
+            'Максим',
+            'Юрій',
+            'Іван',
+            'Ігор',
+            'Іван',
+          ]
 
-      <script>
-        function sum(a, b, c, d) {
-          let sum = a + b + c + d
-          return sum
-        }
-        function prod(a, b, c, d) {
-          let product = a * b * c * d
-          return product
-        }
-        function average(a, b, c, d) {
-          let average = (a + b + c + d) / 4
-          return average
-        }
-        function minValue(a, b, c, d) {
-          minVal = Math.min(a, b, c, d)
-          return minVal
-        }
-        let a = parseFloat(prompt('Введіть перше число'))
-        let b = parseFloat(prompt('Введіть друге число'))
-        let c = parseFloat(prompt('Введіть третє число'))
-        let d = parseFloat(prompt('Введіть четверте число'))
+          let counter = 0
 
-        document.write(`Сума введенних чисел дорівнює ${sum(a, b, c, d)}<br>`)
-        document.write(
-          `Добуток введенних чисел дорівнює ${prod(a, b, c, d)}<br>`
-        )
-        document.write(
-          `Середнє арифметичне введенних чисел дорівнює ${average(
-            a,
-            b,
-            c,
-            d
-          )}<br>`
-        )
-        document.write(
-          `Мінімальне із введенних чисел дорівнює ${minValue(a, b, c, d)}<br>`
-        )
-      </script>
+          for (let i = 0; i < names.length; i++) {
+            if (names[i] === 'Іван') {
+              counter++
+            }
+          }
+          document.write(`Масив: ${names} <br><br>`)
+          document.write(`Ім'я "Іван" зустрічається ${counter} рази`)
+        </script>
+      </div>
     </div>
     <div class="btn">
       <a class="button" href="./index.html">На головну</a>

@@ -62,65 +62,90 @@
   </head>
   <body>
     <div class="header">
-      <div>Задача 1</div>
-      <p>Створити функцію, яка за номером місяця повертає його назву.</p>
+      <div>Задача 2</div>
+      <p>
+        Дано масив, який зберігає кількість відвідувачів магазину протягом
+        тижня. Вивести на екран: <br />
+        • номери днів, протягом яких кількість відвідувачів була меншою за
+        20;<br />
+        • номери днів, коли кількість відвідувачів була максимальною; <br />
+        • номери днів, коли кількість відвідувачів була мінімальною; <br />
+        • загальну кількість клієнтів у робочі дні та окремо загальну кількість
+        днів на вихідних. <br />
+      </p>
     </div>
     <div class="content">
       <p>Відповідь до задачі:</p>
       <script>
-        let monthNum
-        let monthName
-
-        function month(monthNum) {
-          switch (monthNum) {
-            case 1:
-              monthName = 'Січень'
-              break
-            case 2:
-              monthName = 'Лютий'
-              break
-            case 3:
-              monthName = 'Березень'
-              break
-            case 4:
-              monthName = 'Квітень'
-              break
-            case 5:
-              monthName = 'Травень'
-
-              break
-            case 6:
-              monthName = 'Червень'
-              break
-            case 7:
-              monthName = 'Липень'
-              break
-            case 8:
-              monthName = 'Серпень'
-              break
-            case 9:
-              monthName = 'Вересень'
-              break
-            case 10:
-              monthName = 'Жовтень'
-              break
-            case 11:
-              monthName = 'Листопад'
-              break
-            case 12:
-              monthName = 'Грудень'
-              break
-          }
-          return monthName
+        let visitorsNum = new Array(7)
+        for (let i = 1; i <= 7; i++) {
+          visitors = parseInt(
+            prompt(`Введіть кількість відвідувачів магазину за ${i}й день`)
+          )
+          visitorsNum[i] = visitors
         }
-        do {
-          monthNum = parseInt(prompt('Введіть номер місяця'))
-          if (monthNum > 12) {
-            alert('Не вірне значення, спробуйте ще раз')
-          }
-        } while (monthNum > 12)
 
-        document.write(`Місяць під номером ${monthNum} це ${month(monthNum)}`)
+        document.write(`Введений масив: ${visitorsNum} <br>`)
+
+        for (let i = 0; i < visitorsNum.length; i++) {
+          if (visitorsNum[i] < 20) {
+            document.write(
+              `Менше 20ти відвідувачів було у ${visitorsNum.indexOf(
+                visitorsNum[i]
+              )}й день <br>`
+            )
+          }
+        }
+
+        function maxVisitorsNum(visitorsNum) {
+          let maxValue = visitorsNum[1]
+          for (let i = 1; i < visitorsNum.length; i++) {
+            if (visitorsNum[i] > maxValue) maxValue = visitorsNum[i]
+          }
+          return visitorsNum.indexOf(maxValue)
+        }
+        document.write(
+          `Максимальна кількість відвідувачів була у ${maxVisitorsNum(
+            visitorsNum
+          )}й день <br>`
+        )
+
+        function minVisitorsNum(visitorsNum) {
+          let minValue = visitorsNum[1]
+          for (let i = 1; i < visitorsNum.length; i++) {
+            if (visitorsNum[i] < minValue) minValue = visitorsNum[i]
+          }
+          return visitorsNum.indexOf(minValue)
+        }
+        document.write(
+          `Мінімальна кількість відвідувачів була у ${minVisitorsNum(
+            visitorsNum
+          )}й день <br>`
+        )
+
+        function visitorsOnWorkingDays(visitorsNum) {
+          let visitors = 0
+          for (let i = 1; i <= 5; i++) {
+            visitors += visitorsNum[i]
+          }
+          return visitors
+        }
+
+        document.write(
+          `У будні дні було ${visitorsOnWorkingDays(visitorsNum)} клієнтів <br>`
+        )
+
+        function visitorsOnWeekends(visitorsNum) {
+          let visitors = 0
+          for (let i = 6; i <= 7; i++) {
+            visitors += visitorsNum[i]
+          }
+          return visitors
+        }
+
+        document.write(
+          `У вихідні дні було ${visitorsOnWeekends(visitorsNum)} клієнтів <br>`
+        )
       </script>
     </div>
     <div class="btn">
